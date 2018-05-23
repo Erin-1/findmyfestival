@@ -12,8 +12,13 @@ class FestivalsController < ApplicationController
   end
 
   def create
-    @festival = Festival.new(params[:festival])
+    @festival = Festival.new(festival_params)
+    # if
     @festival.save
+    # redirect_to festivals_path
+    # else
+    # render :new
+    # end
   end
 
   def edit
@@ -22,13 +27,22 @@ class FestivalsController < ApplicationController
 
   def update
     @festival = Festival.find(params[:id])
-    @festival.update(params[:festival])
+    if
+    @festival.update(festival_params)
+    redirect_to festival_path(@festival)
+    else
+    render :edit
+    end
   end
 
   def destroy
     @festival = Festival.find(params[:id])
+    if
     @festival.destroy
-
+    redirect_to festivals_path
+    else
+    render :destroy
+    end
   end
 
   private
