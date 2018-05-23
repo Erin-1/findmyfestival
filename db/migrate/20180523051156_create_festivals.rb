@@ -2,11 +2,9 @@ class CreateFestivals < ActiveRecord::Migration[5.2]
   def change
     create_table :festivals do |t|
       t.string :title
-      t.integer :rating
       t.string :description
-      t.string :cost
-      t.string :location
-      t.string :coordinates
+      t.integer :price
+      t.string :address
 
       t.timestamps
     end
