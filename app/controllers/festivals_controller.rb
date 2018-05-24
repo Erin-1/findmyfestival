@@ -12,11 +12,10 @@ class FestivalsController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user_id])
+  #   @user = User.new(params[:user_id])
     @festival = Festival.new(festival_params)
-    @festival.user = @user
-    if
-    @festival.save
+    @festival.user = current_user
+    if @festival.save
     redirect_to festival_path(@festival)
     else
     render :new
@@ -28,11 +27,8 @@ class FestivalsController < ApplicationController
   end
 
   def update
-    @festival = Festival.find(params[:user_id])
-    @festival.update(festival_params)
-    @festival.user = @user
-    if
-    @festival.save
+    @festival = Festival.find(params[:id])
+    if @festival.update(festival_params)
     redirect_to festival_path(@festival)
     else
     render :edit
