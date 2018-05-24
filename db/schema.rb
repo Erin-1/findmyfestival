@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2018_05_24_064751) do
 
-ActiveRecord::Schema.define(version: 2018_05_23_081016) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,11 +52,14 @@ ActiveRecord::Schema.define(version: 2018_05_23_081016) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "bio"
+    t.string "role"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-
   add_foreign_key "bookings", "festivals"
   add_foreign_key "bookings", "users"
+  add_foreign_key "festivals", "users"
 end
