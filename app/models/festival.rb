@@ -1,3 +1,4 @@
 class Festival < ApplicationRecord
-  has_many :users
+  has_many :bookings
+  belongs_to :user
 end

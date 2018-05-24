@@ -1,0 +1,9 @@
+<% @festivals.each do |festival| %>
+<h2><%= festival.title %></h2>
+<p><%= festival.description %></p>
+<%= link_to "Edit a festival", edit_festival_path(festival), class: "btn btn-info" %>
+
+<% end %>
+
+<%= link_to "Add a festival", new_festival_path, class: "btn btn-info" %>
+
