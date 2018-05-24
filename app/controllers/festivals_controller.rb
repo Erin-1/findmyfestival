@@ -12,7 +12,7 @@ class FestivalsController < ApplicationController
   end
 
   def create
-    @festival = Festival.new(festival_params)
+    @user = Festival.new(params[:user_id])
     # if
     @festival.save
     # redirect_to festivals_path
