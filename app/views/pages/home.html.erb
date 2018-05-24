@@ -1,4 +1,13 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Add a festival", new_festival_path %>
-<%= link_to "see all festivals", festivals_path %>
+
+
+
+<div class="banner">
+  <div class="banner-content">
+    <h1>Find My Festival</h1>
+    <p>but don't disturb the fairys...sshhhh</p>
+    <%= link_to "Add a festival", new_festival_path, class: "btn btn-info" %>
+<%= link_to "see all festivals", festivals_path, class: "btn btn-success" %>
+  </div>
+</div>
+
+

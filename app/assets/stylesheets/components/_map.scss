@@ -1,0 +1,19 @@
+.map {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid rgba(220,224,244,0.4);
+  background-color: #42f4e5;
+  opacity: 0.5;
+  border-radius:10px;
+  margin: 50px;
+
+}
+
+.directions {
+  flex-grow: 1;
+}
+
+.address {
+  flex-grow: 1;
+}

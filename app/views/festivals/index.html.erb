@@ -1,9 +1,23 @@
-<% @festivals.each do |festival| %>
-<h2><%= festival.title %></h2>
-<p><%= festival.description %></p>
-<%= link_to "Edit a festival", edit_festival_path(festival), class: "btn btn-info" %>
+<div class="banner2">
+  <div class="banner2-content">
+<div class="container">
+  <div class="row">
+    <% @festivals.each do |festival| %>
+      <div class="col-xs-4">
+        <div class="card">
+        <h2><%= festival.title %></h2>
+        <p><%= festival.description %></p>
+        <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
 
-<% end %>
+        <%= link_to "More Info", festival_path(festival), class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
 
 <%= link_to "Add a festival", new_festival_path, class: "btn btn-info" %>
 
+<%= link_to "Home", root_path, class: "btn btn-info" %>
