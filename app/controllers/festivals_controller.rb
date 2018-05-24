@@ -1,6 +1,6 @@
 class FestivalsController < ApplicationController
   def index
-    @festival = Festival.all
+    @festivals = Festival.all
   end
 
   def show
@@ -12,23 +12,27 @@ class FestivalsController < ApplicationController
   end
 
   def create
-    @user = Festival.new(params[:user_id])
-    # if
+    @user = User.new(params[:user_id])
+    @festival = Festival.new(festival_params)
+    @festival.user = @user
+    if
     @festival.save
-    # redirect_to festivals_path
-    # else
-    # render :new
-    # end
+    redirect_to festival_path(@festival)
+    else
+    render :new
+    end
   end
 
   def edit
-    @festival = Festival.new(params[:id])
+    @festival = Festival.new(festival_params)
   end
 
   def update
-    @festival = Festival.find(params[:id])
-    if
+    @festival = Festival.find(params[:user_id])
     @festival.update(festival_params)
+    @festival.user = @user
+    if
+    @festival.save
     redirect_to festival_path(@festival)
     else
     render :edit
@@ -46,6 +50,10 @@ class FestivalsController < ApplicationController
   end
 
   private
+
+  def festival_params
+    params.require(:festival).permit(:title, :description)
+  end
 
 
 end
