@@ -1,31 +1,34 @@
 <div class="banner2">
   <div class="banner2-content">
-<div class="container">
-  <div class="row">
-    <% @festivals.each do |festival| %>
-      <div class="col-xs-4">
-        <div class="card">
-        <h2><%= festival.title %></h2>
-        <p><%= festival.description %></p>
-        <p><%= festival.address %></p>
-        <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
+    <div class="container">
+      <div class="row">
+        <% @festivals.each do |festival| %>
+        <div class="col-xs-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= image_path festival.photo, height: 300, width: 400, crop: :fill %>')">
+          <div class="card-category">Popular</div><h2><%= festival.title %></h2>
+          <p><%= festival.description %></p>
+          <p><%= festival.address %></p>
+          <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
 
-        <%= link_to "More Info", festival_path(festival), class: "btn btn-info" %>
+          <%= link_to "More Info", festival_path(festival), class: "btn btn-info" %>
         </div>
       </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
 </div>
 </div>
 
 <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
+id="map"
+style="width: 100%;
+height: 600px;"
+data-markers="<%= @markers.to_json %>"
 ></div>
 
 <%= link_to "Add a festival", new_festival_path, class: "btn btn-info" %>
 
 <%= link_to "Home", root_path, class: "btn btn-info" %>
+<%= cl_image_tag("q6yvvmkxllq2szqjjee7",
+width: 400, height: 300, crop: :fill)%>

@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+url = "http://static.giantbomb.com/uploads/original/9/99864/2419866-nes_console_set.png"
+festival = Festival.new(title: 'Burning Man', description: "Crazy place")
+festival.remote_photo_url = url
+festival.save

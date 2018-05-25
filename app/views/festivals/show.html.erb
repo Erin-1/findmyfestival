@@ -1,4 +1,4 @@
-<div class="infopic">
+<div class="infopic" >
   <div class="tag_line">
 <p><%= @festival.title %></p>
 </div>
@@ -8,16 +8,18 @@
 </div>
 
 
-<div class="directions">
+<div class="map">
   <div
   id="map"
-
+  style="width: 200px;
+  height: 200px;"
   data-markers="<%= @markers.to_json %>"
 ></div>
+
   <div class="instructions">
     <p><strong>Directions</strong></p>
     <p>
-      Best way to arrive is by transfer coach from the airport. Book your transfer in addvance...
+      Best way to arrive is by transfer coach from the airport. Book your transfer in advance...
     </p>
   </div>
   <div class="address">
@@ -42,6 +44,10 @@
     <p class="price">€345</p>
   </div>
 </div>
+
+<%= cl_image_tag @festival.photo, height: 300, width: 400, crop: :fill %>
+
+<%= image_tag @festival.photo.url(:bright_face) %>
 
 <%= link_to "All festivals", festivals_path, class: "btn btn-info" %>
 
