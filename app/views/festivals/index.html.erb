@@ -4,7 +4,8 @@
   <div class="row">
     <% @festivals.each do |festival| %>
       <div class="col-xs-4">
-        <div class="card">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @festival.photo, height: 300, width: 400, crop: :fill %>')">
         <h2><%= festival.title %></h2>
         <p><%= festival.description %></p>
         <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
@@ -28,3 +29,5 @@
 <%= link_to "Add a festival", new_festival_path, class: "btn btn-info" %>
 
 <%= link_to "Home", root_path, class: "btn btn-info" %>
+<%= cl_image_tag("q6yvvmkxllq2szqjjee7",
+      width: 400, height: 300, crop: :fill)%>

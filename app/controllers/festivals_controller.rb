@@ -14,6 +14,10 @@ class FestivalsController < ApplicationController
 
   def show
     @festival = Festival.find(params[:id])
+    @markers = [
+        lat: @festival.latitude,
+        lng: @festival.longitude
+      ]
   end
 
   def new
@@ -57,7 +61,7 @@ class FestivalsController < ApplicationController
   private
 
   def festival_params
-    params.require(:festival).permit(:title, :description)
+    params.require(:festival).permit(:title, :description, :photo)
   end
 
 
