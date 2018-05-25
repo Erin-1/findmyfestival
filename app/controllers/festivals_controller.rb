@@ -1,6 +1,15 @@
 class FestivalsController < ApplicationController
   def index
     @festivals = Festival.all
+      @festivals = Festival.where.not(latitude: nil, longitude: nil)
+
+    @markers = @festivals.map do |festival|
+      {
+        lat: festival.latitude,
+        lng: festival.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def show
