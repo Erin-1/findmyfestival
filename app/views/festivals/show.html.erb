@@ -8,9 +8,14 @@
 </div>
 
 
-<div class="map">
-  <div class="directions">
-    <p><strong>Look at me I'm a map</strong></p>
+<div class="directions">
+  <div
+  id="map"
+
+  data-markers="<%= @markers.to_json %>"
+></div>
+  <div class="instructions">
+    <p><strong>Directions</strong></p>
     <p>
       Best way to arrive is by transfer coach from the airport. Book your transfer in addvance...
     </p>
