@@ -1,23 +1,24 @@
 class FestivalsController < ApplicationController
   def index
     @festivals = Festival.all
-      @festivals = Festival.where.not(latitude: nil, longitude: nil)
-
+    @festivals = Festival.where.not(latitude: nil, longitude: nil)
     @markers = @festivals.map do |festival|
       {
         lat: festival.latitude,
         lng: festival.longitude#,
         # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
       }
+
     end
   end
 
   def show
     @festival = Festival.find(params[:id])
-    @markers = [
+    @markers = [{
         lat: @festival.latitude,
-        lng: @festival.longitude
-      ]
+        lng: @festival.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }]
   end
 
   def new
@@ -61,7 +62,11 @@ class FestivalsController < ApplicationController
   private
 
   def festival_params
+<<<<<<< HEAD
     params.require(:festival).permit(:title, :description, :photo)
+=======
+    params.require(:festival).permit(:title, :description, :address)
+>>>>>>> master
   end
 
 
