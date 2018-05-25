@@ -7,6 +7,7 @@
         <div class="card">
         <h2><%= festival.title %></h2>
         <p><%= festival.description %></p>
+        <p><%= festival.address %></p>
         <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
 
         <%= link_to "More Info", festival_path(festival), class: "btn btn-info" %>
