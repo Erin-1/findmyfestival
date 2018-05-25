@@ -62,11 +62,7 @@ class FestivalsController < ApplicationController
   private
 
   def festival_params
-<<<<<<< HEAD
-    params.require(:festival).permit(:title, :description, :photo)
-=======
-    params.require(:festival).permit(:title, :description, :address)
->>>>>>> master
+    params.require(:festival).permit(:title, :description, :address, :photo, :photo_cache)
   end
 
 
