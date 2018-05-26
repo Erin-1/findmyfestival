@@ -49,6 +49,10 @@
 
 <%= image_tag @festival.photo.url(:bright_face) %>
 
+
+
+<%= link_to "book", new_festival_booking_path(@festival), class: "btn btn-info" %>
+
 <%= link_to "All festivals", festivals_path, class: "btn btn-info" %>
 
  <%= link_to "Edit a festival", edit_festival_path(@festival), class: "btn btn-info" %>
