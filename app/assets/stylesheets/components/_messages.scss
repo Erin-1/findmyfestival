@@ -48,6 +48,12 @@
 .message-body {
   flex-grow: 1;
 }
+
+.message-status {
+padding: 20px;
+flex-grow: 1;
+}
+
 .status.accepted {
   color: #04A366;
 }

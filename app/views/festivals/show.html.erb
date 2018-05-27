@@ -1,13 +1,20 @@
 <div class="infopic" >
-  # <%=  cl_image_tag @festival.photo, height: 300, width: 100, crop: :fill %>
+  <%=  cl_image_tag @festival.photo, height: 1000, width: 1800, crop: :fill %>
   <div class="tag_line">
 <p><%= @festival.title %></p>
 </div>
-<div class = "description">
-<p><%= @festival.description %></p>
+<div class = "cost">
+<p><%= @festival.price %></p>
 </div>
 </div>
 
+<div class="container">
+<div class = "description">
+  <div class="instructions"></div>
+  <p><strong>Description</strong></p>
+  <div class="message-body"></div>
+<p><%= @festival.description %></p>
+</div>
 
 <div class="map">
   <div
@@ -60,4 +67,4 @@
 <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
 
 
-
+</div>
