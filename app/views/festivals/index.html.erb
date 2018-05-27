@@ -5,10 +5,9 @@
         <% @festivals.each do |festival| %>
         <div class="col-xs-4">
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-          url('<%= image_path festival.photo, height: 300, width: 400, crop: :fill %>')">
-          <div class="card-category">Popular</div><h2><%= festival.title %></h2>
-          <p><%= festival.description %></p>
-          <p><%= festival.address %></p>
+          url('<%= image_path festival.photo, height: 300, width: 400 %>')">
+          <div class="card-category"><%= festival.title %></div>
+          <div class="card-description"><%= festival.description %></div>
           <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
 
           <%= link_to "More Info", festival_path(festival), class: "btn btn-info" %>

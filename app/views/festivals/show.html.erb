@@ -1,4 +1,5 @@
 <div class="infopic" >
+  # <%=  cl_image_tag @festival.photo, height: 300, width: 100, crop: :fill %>
   <div class="tag_line">
 <p><%= @festival.title %></p>
 </div>
@@ -45,7 +46,7 @@
   </div>
 </div>
 
-<%= cl_image_tag @festival.photo, height: 300, width: 400, crop: :fill %>
+
 
 <%= image_tag @festival.photo.url(:bright_face) %>
 
