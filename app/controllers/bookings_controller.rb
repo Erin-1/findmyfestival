@@ -7,11 +7,6 @@ def show
   @bookings = Booking.find(params[:festival_id])
 end
 
-# def new
-#   @festival = Festival.find(params[:festival_id])
-#   @booking = Booking.new
-# end
-
 def create
   festival = Festival.find(params[:festival_id])
   @booking = Booking.new(booking_params)
