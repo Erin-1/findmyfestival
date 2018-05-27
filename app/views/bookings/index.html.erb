@@ -2,6 +2,7 @@
 
 <% @bookings.each do |booking| %>
 <%= booking.status %>
+<%= link_to "show booking", booking_path(booking), class: "btn btn-info" %>
 <% end %>
 
 
