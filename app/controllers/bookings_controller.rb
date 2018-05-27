@@ -4,7 +4,12 @@ def index
 end
 
 def show
-  @bookings = Booking.find(params[:festival_id])
+  @bookings = Booking.find(params[:id])
+end
+
+def new
+  @festival = Festival.find(params[:festival_id])
+  @booking = Booking.new
 end
 
 def create
@@ -18,6 +23,33 @@ def create
   else
     flash[:error] = "Warning, this failed"
     render :new
+  end
+
+
+  def edit
+   @bookings = Booking.find(params[:id])
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @festival = Festival.find(params[:festival_id])
+    @booking.festival = festival
+     if @booking.update(booking_params)
+    redirect_to booking_path(@booking)
+    else
+    render :edit
+    end
+  end
+
+def destroy
+   @festival = Festival.find(params[:festival_id])
+   @booking = Booking.find(params[:id])
+    if
+    @booking.destroy
+    redirect_to bookings_path
+    else
+    render :destroy
+    end
   end
 end
 
