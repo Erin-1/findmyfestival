@@ -6,12 +6,21 @@
 //   font-weight: lighter;
 //   opacity: 0.6;
 // }
-// .btn-medium:hover {
-//   opacity: 1;
-//   text-decoration: none;
-//   color: #999999;
+.button:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #999999;
+}
 
-.btn btn-info {
+.button {
 
 width: 80px;
+height: 60px;
+border-radius:5px;
+color: #999999;
+  border: 1px solid #999999;
+  padding: 10px 15px;
+  // border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
 }
