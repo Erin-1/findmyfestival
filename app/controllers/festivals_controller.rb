@@ -55,7 +55,7 @@ class FestivalsController < ApplicationController
     @festival.destroy
     redirect_to festivals_path
     else
-    render :destroy
+    render :show
     end
   end
 
