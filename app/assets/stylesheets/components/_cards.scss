@@ -7,6 +7,29 @@
   position: relative;
   margin: 20px;
 }
+
+.button_card {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  width: 100px;
+  height: 60px;
+  border-radius:5px;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 10px 15px;
+  font-weight: lighter;
+  opacity: 0.6;
+
+}
+
+.button_card:hover {
+  opacity: 1;
+  text-decoration: none;
+  color: #ffffff;
+
+}
+
 .card-user {
   position: absolute;
   right: 10px;
