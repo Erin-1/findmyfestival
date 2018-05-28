@@ -1,63 +1,62 @@
 class BookingsController < ApplicationController
 
-def index
-  @bookings = Booking.all
-end
-
-def show
-  @booking = Booking.find(params[:id])
-end
-
-def new
-  @festival = Festival.find(params[:festival_id])
-  @booking = Booking.new
-end
-
-def create
-  festival = Festival.find(params[:festival_id])
-  @booking = Booking.new(booking_params)
-  @booking.user = current_user
-  @booking.festival = festival
-  if @booking.save
-    flash[:notice] = "Succes"
-    redirect_to festivals_path
-  else
-    flash[:error] = "Warning, this failed"
-    render :new
+  def index
+    @bookings = Booking.all
   end
 
-
-  def edit
-    @festival = Festival.find(params[:festival_id])
+  def show
     @booking = Booking.find(params[:id])
   end
 
-  def update
+  def new
     @festival = Festival.find(params[:festival_id])
-    @booking = Booking.find(params[:id])
-     if @booking.update(booking_params)
-      redirect_to booking_path(@booking)
+    @booking = Booking.new
+  end
+
+  def create
+    festival = Festival.find(params[:festival_id])
+    @booking = Booking.new(booking_params)
+    @booking.user = current_user
+    @booking.festival = festival
+    if @booking.save
+      flash[:notice] = "Succes"
+      redirect_to bookings_path(@booking)
     else
-    render :edit
+      flash[:error] = "Warning, this failed"
+      render :new
     end
   end
 
-def destroy
-   @festival = Festival.find(params[:festival_id])
-   @booking = Booking.find(params[:id])
-    if @booking.destroy
-    redirect_to bookings_path
-    else
-    render :destroy
+    def edit
+      @festival = Festival.find(params[:festival_id])
+      @booking = Booking.find(params[:id])
     end
+
+    def update
+      @festival = Festival.find(params[:festival_id])
+      @booking = Booking.find(params[:id])
+      if @booking.update(booking_params)
+        redirect_to booking_path(@booking)
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+     @festival = Festival.find(params[:festival_id])
+     @booking = Booking.find(params[:id])
+     if @booking.destroy
+     redirect_to bookings_path
+      else
+      render :show
+    end
+   end
+
+
+   private
+
+   def booking_params
+    params.require(:booking).permit(:start_date, :end_date, :status, :total_price)
   end
-end
-
-
-private
-
-def booking_params
-  params.require(:booking).permit(:start_date, :end_date, :status, :total_price)
-end
 
 end
