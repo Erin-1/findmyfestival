@@ -1,10 +1,11 @@
 class BookingsController < ApplicationController
+
 def index
   @bookings = Booking.all
 end
 
 def show
-  @bookings = Booking.find(params[:id])
+  @booking = Booking.find(params[:id])
 end
 
 def new
@@ -27,15 +28,15 @@ def create
 
 
   def edit
-   @bookings = Booking.find(params[:id])
+    @festival = Festival.find(params[:festival_id])
+    @booking = Booking.find(params[:id])
   end
 
   def update
-    @booking = Booking.find(params[:id])
     @festival = Festival.find(params[:festival_id])
-    @booking.festival = festival
+    @booking = Booking.find(params[:id])
      if @booking.update(booking_params)
-    redirect_to booking_path(@booking)
+      redirect_to booking_path(@booking)
     else
     render :edit
     end
@@ -44,8 +45,7 @@ def create
 def destroy
    @festival = Festival.find(params[:festival_id])
    @booking = Booking.find(params[:id])
-    if
-    @booking.destroy
+    if @booking.destroy
     redirect_to bookings_path
     else
     render :destroy
@@ -57,7 +57,7 @@ end
 private
 
 def booking_params
-  params.require(:booking).permit(:festival_id, :user_id, :start_date, :end_date, :status, :total_price)
+  params.require(:booking).permit(:start_date, :end_date, :status, :total_price)
 end
 
 end
