@@ -3,7 +3,8 @@
 
 <%= @booking.status %>
 
-<%= "You wanna book this gig?" %>
 
-<%= link_to "You wanna change stuff?", edit_festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
+<%= link_to "Edit my booking", edit_festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
+
+<%= link_to "Cancel booking", booking_path(@booking.festival, @booking), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
 
