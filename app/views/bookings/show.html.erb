@@ -1,7 +1,9 @@
 
 
-<%= @bookings.status %>
+
+<%= @booking.status %>
 
 <%= "You wanna book this gig?" %>
 
-<%= link_to "You wanna change stuff?", festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
+<%= link_to "You wanna change stuff?", edit_festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
+
