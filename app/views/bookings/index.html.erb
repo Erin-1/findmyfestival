@@ -1,10 +1,26 @@
 <!-- #show all bookings of one festival -->
 
-<% @bookings.each do |booking| %>
-<%= booking.festival.title %>
-<%= booking.status %>
-<%= link_to "show booking", booking_path(booking), class: "btn btn-info" %>
-<% end %>
+
+<div class="container">
+<h2 class="text-center">These are all the festivals that you are attending:</h2>
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-xs-4">
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+      url('<%= image_path booking.festival.photo, height: 300, width: 400 %>')">
+      <div class="card-category"<%= booking.festival.title %>></div>
+      <div class="card-category"><%= booking.status %></div>
+
+
+      <%= link_to "More Info", booking_path(booking), class: "button_card" %>
+      <%= link_to "show booking", booking_path(booking), class: "btn btn-info" %>
+
+
+    </div>
+  </div>
+  <% end %>
+
+</div>
 
 
 

@@ -11,9 +11,9 @@
 
       <!-- Links when logged in -->
       <% if current_user.host? %>
-      <%= link_to "Host", dashboards_my_trips_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Host", dashboards_my_festivals_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
-      <%= link_to "Trips", dashboards_my_festivals_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Trips", dashboards_my_trips_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %>
          <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
