@@ -65,9 +65,11 @@
 
 <%= link_to "All festivals", festivals_path, class: "btn btn-info" %>
 
- <% if current_user.host? %>
+ <% if !current_user.client? %>
   <%= link_to "Edit festival", edit_festival_path(@festival), class: "btn btn-info" %>
      <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
-     <% end %>
+     <% else %>
+     <p>hello test you're not able to modify the festival just book it</p>
+  <% end %>
 
 </div>

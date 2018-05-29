@@ -1,13 +1,96 @@
 
 
 
+
+
+
+
+
+<div class="infopic" >
+  <%=  cl_image_tag @festival.photo, height: 1000, width: 1800, crop: :fill %>
+  <div class="tag_line">
+<p><%= @festival.title %></p>
 <%= @booking.status %>
 <%= @booking.festival.title %>
+</div>
+<div class = "cost">
+<p><%= @festival.price %></p>
+</div>
+</div>
 
-<%= link_to "Edit my booking", edit_festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
+<div class="container">
+<div class = "description">
+  <div class="instructions"></div>
+  <p><strong>Description</strong></p>
+  <div class="message-body"></div>
+<p><%= @festival.description %></p>
+</div>
+
+<div class="map">
+  <div
+  id="map"
+  style="width: 200px;
+  height: 200px;"
+  data-markers="<%= @markers.to_json %>"
+></div>
+
+  <div class="instructions">
+    <p><strong>Directions</strong></p>
+    <p>
+      Best way to arrive is by transfer coach from the airport. Book your transfer in advance...
+    </p>
+  </div>
+  <div class="address">
+    <p><%= @festival.address %></p>
+  </div>
+</div>
+
+<div class="message">
+  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+  <div class="message-name">
+    <h3>Gab Dehan</h3>
+    <p>10/07/17</p>
+  </div>
+  <div class="message-body">
+    <p><strong>I am not sure yet!</strong></p>
+    <p>
+      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+    </p>
+  </div>
+  <div class="message-status">
+    <p class="status pending">P<%= @booking.status %></p>
+    <p class="price"><%= @booking.total_price %></p>
+  </div>
+</div>
+
+
+
+
+
+<%= image_tag @festival.photo.url(:bright_face) %>
+
+
+
+<%= link_to "book", new_festival_booking_path(@festival), class: "btn btn-info" %>
+
+<%= link_to "All festivals", festivals_path, class: "btn btn-info" %>
+
+ <% if current_user.host? %>
+  <%= link_to "Edit festival", edit_festival_path(@festival), class: "btn btn-info" %>
+     <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
+     <% else %>
+     <p>hello test you're not able to modify the festival just book it</p>
+  <% end %>
+
+  <% if cureent_user.client? %>
+
+  <%= link_to "Edit my booking", edit_festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
 
 <%= link_to "Cancel booking", festival_booking_path(@booking.festival, @booking), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
 
 <%= link_to "Add review", new_booking_review_path(@booking), class: "btn btn-info" %>
+<% else %>
+     <p>hello test you're not able to modify the festival just book it</p>
+  <% end %>
 
-
+</div>
