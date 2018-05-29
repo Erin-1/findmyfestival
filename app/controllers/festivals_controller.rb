@@ -1,14 +1,17 @@
 class FestivalsController < ApplicationController
   def index
-    @festivals = Festival.all
-    @festivals = Festival.where.not(latitude: nil, longitude: nil)
-    @markers = @festivals.map do |festival|
-      {
-        lat: festival.latitude,
-        lng: festival.longitude#,
-        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
-      }
-
+    # @festivals = Festival.all
+    if current_user.host?
+      @festivals = Festival.where.not(latitude: nil, longitude: nil, user_id: current_user)
+    else
+      @festivals = Festival.where.not(latitude: nil, longitude: nil)
+      @markers = @festivals.map do |festival|
+        {
+          lat: festival.latitude,
+          lng: festival.longitude#,
+          # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+        }
+      end
     end
   end
 
@@ -26,7 +29,7 @@ class FestivalsController < ApplicationController
   end
 
   def create
-  #   @user = User.new(params[:user_id])
+
     @festival = Festival.new(festival_params)
     @festival.user = current_user
     if @festival.save
