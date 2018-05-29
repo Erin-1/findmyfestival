@@ -26,8 +26,10 @@ height: 600px;"
 data-markers="<%= @markers.to_json %>"
 ></div>
 
-<%= link_to "Add a festival", new_festival_path, class: "btn btn-info" %>
-
-<%= link_to "Home", root_path, class: "button" %>
-<%= cl_image_tag("q6yvvmkxllq2szqjjee7",
-width: 400, height: 300, crop: :fill)%>
+<% if @current_user.host? %>
+<%= link_to "Add a festival", new_festival_path, class: "button" %>
+<% end %>
+<!--
+ link_to "Home", root_path, class: "button" %>
+cl_image_tag("q6yvvmkxllq2szqjjee7",
+width: 400, height: 300, crop: :fill)%> -->
