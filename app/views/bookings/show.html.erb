@@ -1,20 +1,13 @@
 
-
-
-
-
-
-
-
 <div class="infopic" >
-  <%=  cl_image_tag @festival.photo, height: 1000, width: 1800, crop: :fill %>
+  <%=  cl_image_tag @booking.festival.photo, height: 1000, width: 1800, crop: :fill %>
   <div class="tag_line">
-<p><%= @festival.title %></p>
+<p><%= @booking.festival.title %></p>
 <%= @booking.status %>
 <%= @booking.festival.title %>
 </div>
 <div class = "cost">
-<p><%= @festival.price %></p>
+<p><%= @booking.festival.price %></p>
 </div>
 </div>
 
@@ -23,7 +16,7 @@
   <div class="instructions"></div>
   <p><strong>Description</strong></p>
   <div class="message-body"></div>
-<p><%= @festival.description %></p>
+<p><%= @booking.festival.description %></p>
 </div>
 
 <div class="map">
@@ -41,7 +34,7 @@
     </p>
   </div>
   <div class="address">
-    <p><%= @festival.address %></p>
+    <p><%= @booking.festival.address %></p>
   </div>
 </div>
 
@@ -67,22 +60,13 @@
 
 
 
-<%= image_tag @festival.photo.url(:bright_face) %>
+<%= image_tag @booking.festival.photo.url(:bright_face) %>
 
 
 
-<%= link_to "book", new_festival_booking_path(@festival), class: "btn btn-info" %>
 
-<%= link_to "All festivals", festivals_path, class: "btn btn-info" %>
 
- <% if current_user.host? %>
-  <%= link_to "Edit festival", edit_festival_path(@festival), class: "btn btn-info" %>
-     <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
-     <% else %>
-     <p>hello test you're not able to modify the festival just book it</p>
-  <% end %>
-
-  <% if cureent_user.client? %>
+  <% if current_user.host? %>
 
   <%= link_to "Edit my booking", edit_festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
 
