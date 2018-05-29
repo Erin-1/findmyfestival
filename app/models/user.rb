@@ -10,5 +10,9 @@ class User < ApplicationRecord
   def host?
     self.role == "host"
   end
+
+  def client?
+    self.role =="client"
+  end
 end
 
