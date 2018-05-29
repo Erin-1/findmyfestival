@@ -10,7 +10,10 @@
       <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
 
       <%= link_to "More Info", festival_path(festival), class: "button_card" %>
+       <%= link_to "Edit a festival", edit_festival_path(@festival), class: "btn btn-info" %>
+<%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
     </div>
   </div>
   <% end %>
+   <%= link_to "Add a festival", new_festival_path, class: "button" %>
 </div>
