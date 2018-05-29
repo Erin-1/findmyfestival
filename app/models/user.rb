@@ -6,5 +6,9 @@ class User < ApplicationRecord
   has_many :festivals
   has_many :bookings
   has_many :reviews, through: :bookings
+
+  def host?
+    self.role == "host"
+  end
 end
 
