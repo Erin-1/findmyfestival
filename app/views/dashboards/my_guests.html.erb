@@ -1,0 +1,48 @@
+<div class="banner-bottom">
+<div class="container">
+<h2 class="text-center">These are all your guests.</h2>
+  <div class="row">
+    <div class="col-xs-4">
+    <% @festivals.each do |festival| %>
+
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+          url('<%= image_path festival.photo, height: 300, width: 400 %>')">
+          <div class="card-category">
+
+
+            <% yipples = festival.bookings %>
+
+            <%= link_to "More Info", festival_path(festival), class: "button_card" %>
+
+          <%= link_to "Edit festival", edit_festival_path(festival), class: "btn btn-info" %>
+          <%= link_to "Remove festival", festival_path(festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
+
+             <% yipples.each do |yip| %>
+
+          <%= yip.status %>
+
+        <%= yip.total_price %>
+
+
+
+          <% end %>
+
+          </div>
+
+
+
+          <!-- <div class="card-description"><%= festival.description %></div> -->
+          <!-- festival.photo #scrape, parse to seed database then interpolate photo from hash??? -->
+
+
+
+        </div>
+
+            <% end %>
+      </div>
+
+
+
+   <%= link_to "Add a festival", new_festival_path, class: "button" %>
+</div>
+</div>

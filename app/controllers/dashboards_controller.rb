@@ -12,7 +12,13 @@ class DashboardsController < ApplicationController
   end
 
 
+
   # select all the festival created by current user
   # from festivals get all the bookings
+
+  def my_guests
+   @festivals = Festival.where(user: current_user)
+
+  end
 
 end
