@@ -1,6 +1,21 @@
+
+<div class="banner2">
+  <div class="banner2-content">
+    <div class="container">
+      <h2>Here's your review</h2>
+      <div class="row">
+        <ul>
+
 <%= @review.content %>
 <%= @review.stars %>
 
 <%= link_to "Edit review", edit_review_path(@review),class: "btn btn-info" %>
 
 <%= link_to "Delete review", review_path(@review), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
+ <%= link_to "Return to my booking", booking_path(@review.booking), class: "btn btn-info" %>
+
+ <%= link_to "Return to my trips", dashboards_my_trips_path, class: "button" %>
+</div>
+</div>
+</div>
+</div>

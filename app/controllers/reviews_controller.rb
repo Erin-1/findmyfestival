@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
  def destroy
   @review = Review.find(params[:id])
   if @review.destroy
-    redirect_to reviews_path
+    redirect_to review_path(@review)
   else
     render :show
  end

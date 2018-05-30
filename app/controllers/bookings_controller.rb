@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
 
   def index
-    if @current_user.client?
+
     @bookings = Booking.where(user_id: current_user)
-    end
+
   end
 
   def show

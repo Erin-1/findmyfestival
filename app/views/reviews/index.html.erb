@@ -1,3 +1,21 @@
+
+<div class="banner2">
+  <div class="banner2-content">
+    <div class="container">
+      <h2>Here's your review</h2>
+      <div class="row">
+        <ul>
 <% @reviews.each do |review|%>
-<%= review.content %>
+<li> <%= review.content %> </li>
+<li> <%= review.stars %> </li>
+<%= link_to "Delete review", review_path(review), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
+<%= link_to "Edit review", edit_review_path(review),class: "button" %>
+ </ul>
 <% end %>
+
+ <%= link_to "Return to my trips", dashboards_my_trips_path, class: "button" %>
+</div>
+</div>
+</div>
+</div>
+
