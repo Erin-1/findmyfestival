@@ -56,19 +56,17 @@
 
 
 
-
-<%= image_tag @festival.photo.url(:bright_face) %>
-
+<!-- current_user(:id) == @festival.user.(:id) -->
 
 
- <% if !current_user.client? %>
+
+ <% if current_user.host? %>
   <%= link_to "Edit festival", edit_festival_path(@festival), class: "btn btn-info" %>
      <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
      <% else %>
      <p>hello test you're not able to modify the festival just book it</p>
-  <% end %>
+  <% else %>
 
-<% if current_user.client? %>
   <%= link_to "book", new_festival_booking_path(@festival), class: "btn btn-info" %>
   <% end %>
 

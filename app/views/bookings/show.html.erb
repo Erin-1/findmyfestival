@@ -66,15 +66,13 @@
 
 
 
-  <% if current_user.host? %>
+  <% if current_user.client? %>
 
   <%= link_to "Edit my booking", edit_festival_booking_path(@booking.festival, @booking), class: "btn btn-info" %>
 
 <%= link_to "Cancel booking", festival_booking_path(@booking.festival, @booking), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
 
 <%= link_to "Add review", new_booking_review_path(@booking), class: "btn btn-info" %>
-<% else %>
-     <p>hello test you're not able to modify the festival just book it</p>
   <% end %>
 
 </div>
