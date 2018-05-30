@@ -72,6 +72,7 @@
 
 <%= link_to "Cancel booking", festival_booking_path(@booking.festival, @booking), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
 
+
 <%= link_to "Add review", new_booking_review_path(@booking), class: "btn btn-info" %>
 
 <%= link_to "Ammend my review", reviews_path(@reviews), class: "btn btn-info" %>
