@@ -44,6 +44,7 @@ class FestivalsController < ApplicationController
   end
 
   def update
+
     @festival = Festival.find(params[:id])
     if @festival.update(festival_params)
     redirect_to festival_path(@festival)

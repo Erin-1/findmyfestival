@@ -8,9 +8,11 @@ class DashboardsController < ApplicationController
   end
 
   def my_trips
-   if current_user.host?
    @bookings = Booking.where(user_id: current_user)
   end
-end
+
+
+  # select all the festival created by current user
+  # from festivals get all the bookings
 
 end
