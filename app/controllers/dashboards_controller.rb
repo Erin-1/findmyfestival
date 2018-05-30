@@ -2,15 +2,15 @@ class DashboardsController < ApplicationController
 
   def my_festivals
     if current_user.host?
-      @festivals = Festival.where(user_id: current_user)
+      @festivals = current_user.festivals
+      # @festival.each do |fest|
+      #   fest.bookings.each do |booking|
+      #   end
     end
-    @bookings = current_user.bookings
   end
 
   def my_trips
-   if current_user.host?
-   @bookings = Booking.where(user_id: current_user)
+    @bookings = current_user.bookings
   end
-end
 
 end
