@@ -58,7 +58,9 @@
 
 <!-- current_user(:id) == @festival.user.(:id) -->
 
-  <%= link_to "book", new_festival_booking_path(@festival), class: "btn btn-info" %>
+  <%= link_to "My festivals", dashboards_my_festivals_path, class: "btn btn-info" %>
+    <%= link_to "Edit festival", edit_festival_path(@festival), class: "btn btn-info" %>
+          <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
 
 
 </div>
