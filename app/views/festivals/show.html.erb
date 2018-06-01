@@ -1,66 +1,70 @@
 <div class="infopic" >
   <%=  cl_image_tag @festival.photo, height: 1000, width: 1800, crop: :fill %>
   <div class="tag_line">
-<p><%= @festival.title %></p>
-</div>
-<div class = "cost">
-<p><%= @festival.price %></p>
-</div>
+    <p><%= @festival.title %></p>
+  </div>
+  <div class = "cost">
+    <p><%= @festival.price %></p>
+  </div>
 </div>
 
 <div class="container">
-<div class = "description">
-  <div class="instructions"></div>
-  <p><strong>Description</strong></p>
-  <div class="message-body"></div>
-<p><%= @festival.description %></p>
-</div>
-
-<div class="map">
-  <div
-  id="map"
-  style="width: 200px;
-  height: 200px;"
-  data-markers="<%= @markers.to_json %>"
-></div>
-
-  <div class="instructions">
-    <p><strong>Directions</strong></p>
-    <p>
-      Best way to arrive is by transfer coach from the airport. Book your transfer in advance...
-    </p>
+  <div class = "description">
+    <div class="instructions"></div>
+    <p><strong>Description</strong></p>
+    <div class="message-body"></div>
+    <p><%= @festival.description %></p>
   </div>
-  <div class="address">
-    <p><%= @festival.address %></p>
+
+  <div class="map">
+    <div
+    id="map"
+    style="width: 200px;
+    height: 200px;"
+    data-markers="<%= @markers.to_json %>"
+    ></div>
+
+    <div class="instructions">
+      <p><strong>Directions</strong></p>
+      <p>
+        Best way to arrive is by transfer coach from the airport. Book your transfer in advance...
+      </p>
+    </div>
+    <div class="address">
+      <p><%= @festival.address %></p>
+    </div>
   </div>
-</div>
 
-<div class="message">
-  <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
-  <div class="message-name">
-    <h3>Gab Dehan</h3>
-    <p>10/07/17</p>
+  <div class="message">
+    <img class="avatar-large" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+    <div class="message-name">
+      <h3>Gab Dehan</h3>
+      <p>10/07/17</p>
+    </div>
+    <div class="message-body">
+      <p><strong>I am not sure yet!</strong></p>
+      <p>
+        I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
+      </p>
+    </div>
+    <div class="message-status">
+      <p class="status pending">Pending</p>
+      <p class="price">€345</p>
+    </div>
   </div>
-  <div class="message-body">
-    <p><strong>I am not sure yet!</strong></p>
-    <p>
-      I am not sure yet! I might be in Shanghai at this moment... Can I tell you later?
-    </p>
-  </div>
-  <div class="message-status">
-    <p class="status pending">Pending</p>
-    <p class="price">€345</p>
-  </div>
-</div>
+
+  <% if current_user.host? %>
+
+      <%= link_to "Edit festival", edit_festival_path(@festival), class: "btn btn-info" %>
+  <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
+  <% else %>
 
 
+<%= link_to "book this festival", new_festival_booking_path(@festival), class: "btn btn-info" %>
 
+  <!-- current_user(:id) == @festival.user.(:id)
+ -->
 
-<!-- current_user(:id) == @festival.user.(:id) -->
-
-  <%= link_to "My festivals", dashboards_my_festivals_path, class: "btn btn-info" %>
-    <%= link_to "Edit festival", edit_festival_path(@festival), class: "btn btn-info" %>
-          <%= link_to "Remove festival", festival_path(@festival), method: :delete, data: {confirm: "You sure??" }, class: "btn btn-info" %>
-
+ <% end %>
 
 </div>

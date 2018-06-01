@@ -18,7 +18,6 @@ class DashboardsController < ApplicationController
 
   def my_guests
    @festivals = Festival.where(user: current_user)
-
   end
 
 end

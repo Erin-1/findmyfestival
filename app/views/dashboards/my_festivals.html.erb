@@ -4,8 +4,7 @@
   <div class="row">
     <% @festivals.each do |festival| %>
     <%= render 'festivals/host', festival: festival %>
+
   <% end %>
-   <%= link_to "Add a festival", new_festival_path, class: "button" %>
-   <%= link_to "My guests", dashboards_my_guests_path, class: "button" %>
 </div>
 </div>
