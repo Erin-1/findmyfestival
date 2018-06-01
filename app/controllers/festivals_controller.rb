@@ -33,6 +33,8 @@ class FestivalsController < ApplicationController
     @festival = Festival.new(festival_params)
     @festival.user = current_user
     if @festival.save
+      current_user.role = "host"
+      current_user.save
     redirect_to festival_path(@festival)
     else
     render :new

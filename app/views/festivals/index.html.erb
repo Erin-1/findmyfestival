@@ -26,7 +26,7 @@ height: 600px;"
 data-markers="<%= @markers.to_json %>"
 ></div>
 
-<% if @current_user.host? %>
+<% if current_user.host? %>
 <%= link_to "Add a festival", new_festival_path, class: "btn btn-info" %>
 <%= link_to "My guests", dashboards_my_guests_path, class: "btn btn-info" %>
 <% end %>
