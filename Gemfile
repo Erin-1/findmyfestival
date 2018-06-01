@@ -11,6 +11,7 @@ gem 'rails', '5.2.0'
 gem 'redis'
 gem "geocoder"
 gem 'cloudinary'
+gem 'jquery-rails'
 gem 'carrierwave', '~> 1.2'
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
